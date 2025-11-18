@@ -1,6 +1,4 @@
-Aquí tienes un ejemplo de `README.md` defensivo, visual y modular para tu proyecto **VITE-Carrito**, ideal para onboarding técnico multicultural, documentación clara y navegación robusta:
 
----
 
 ## 🛒 VITE-Carrito
 
@@ -89,11 +87,9 @@ export function useCart() {
   }
   return { cart, addItem, removeItem }
 }
-```
 
----
 
-### 📁 Alias recomendados (`vite.config.ts`)
+Alias recomendados (`vite.config.ts`)
 
 ```ts
 import { defineConfig } from 'vite'
@@ -113,10 +109,7 @@ export default defineConfig({
   },
 })
 ```
-
----
-
-### 🌍 Onboarding multicultural
+ Onboarding multicultural
 
 - Comentarios bilingües (español/inglés)
 - Props descriptivos y consistentes
@@ -139,18 +132,8 @@ graph TD
   E[Register.vue] --> B
   E --> D
 
-  graph TD
-  A[Login.vue] --> B[useAuth.ts]
-  B --> C[auth.ts]
-  A --> D[Home.vue]
-  E[Register.vue] --> B
-  E --> D
-
-  ¡Claro! Aquí tienes cómo integrar el diagrama Mermaid de autenticación en tu `README.md` de **VITE-Carrito**, con estilo defensivo, visual y multicultural:
-
----
-
-### 🔐 Diagrama de flujo de autenticación
+ 
+🔐 Diagrama de flujo de autenticación
 
 Este diagrama muestra cómo los componentes `Login.vue` y `Register.vue` interactúan con la lógica de autenticación y navegación:
 
@@ -161,9 +144,7 @@ graph TD
   A --> D[Home.vue]
   E[Register.vue] --> B
   E --> D
-```
 
----
 
 ### 🧭 Explicación visual
 
@@ -172,7 +153,6 @@ graph TD
 - **useAuth.ts** comunica con el store **auth.ts** para gestionar el estado del usuario.
 - Tras autenticarse, el flujo redirige a **Home.vue**.
 
----
 
 ### 🌍 Recomendaciones para equipos multiculturales
 
@@ -180,10 +160,6 @@ graph TD
 - Validación defensiva en formularios (`required`, `email`, `minLength`)
 - Mensajes de error claros y accesibles
 - Navegación visual con diagramas Mermaid para facilitar el onboarding
-
----
-
-¿Quieres que te ayude a generar un segundo diagrama para recuperación de contraseña, verificación por correo o flujos de roles (admin/cliente)? También puedo ayudarte a modularizar los formularios o integrar validaciones visuales con Tailwind.
 
 src/pages/Home.vue
 src/pages/NotFound.vue
