@@ -12,13 +12,14 @@ Aplicación web moderna para gestionar productos, visualizar detalles y operar u
 src/
 ├── assets/         # Imágenes, íconos, fuentes
 ├── components/     # Reutilizables (ProductCard, CartItem, QuantitySelector)
-├── composables/    # Lógica reactiva (useCart, useProduct)
+├── composables/    # Lógica reactiva (useCart, useProduct, useAuth)
 ├── layouts/        # Layouts base (MainLayout, AuthLayout)
-├── pages/          # Vistas principales (Home, Products, Cart, Checkout)
+├── pages/          # Vistas principales (Home, Products, Cart, Checkout, Login, Register)
 ├── plugins/        # Configuración global (i18n, pinia)
 ├── router/         # Rutas con lazy loading
-├── store/          # Estado global con Pinia
-├── types/          # Interfaces y tipos (Product, CartItem)
+├── store/          # Estado global con Pinia (cart, auth)
+├── types/          # Interfaces y tipos (Product, CartItem, User)
+├── scripts/        # Scripts defensivos (clean.ps1)
 ├── App.vue         # Componente raíz
 └── main.ts         # Punto de entrada
 ```
@@ -55,7 +56,7 @@ powershell ./scripts/clean.ps1
 
 ---
 
-### 🧭 Diagrama de navegación (Mermaid)
+### 🧭 Diagrama de navegación
 
 ```mermaid
 graph TD
@@ -64,6 +65,19 @@ graph TD
   C --> D[Checkout.vue]
   A --> E[Login.vue]
   E --> F[Register.vue]
+```
+
+---
+
+### 🔐 Diagrama de flujo de autenticación
+
+```mermaid
+graph TD
+  A[Login.vue] --> B[useAuth.ts]
+  B --> C[auth.ts]
+  A --> D[Home.vue]
+  E[Register.vue] --> B
+  E --> D
 ```
 
 ---
@@ -87,9 +101,11 @@ export function useCart() {
   }
   return { cart, addItem, removeItem }
 }
+```
 
+---
 
-Alias recomendados (`vite.config.ts`)
+### 🧩 Alias recomendados (`vite.config.ts`)
 
 ```ts
 import { defineConfig } from 'vite'
@@ -109,62 +125,18 @@ export default defineConfig({
   },
 })
 ```
- Onboarding multicultural
 
-- Comentarios bilingües (español/inglés)
+---
+
+### 🌍 Onboarding multicultural
+
+- Comentarios bilingües (`es` / `en`) en componentes
 - Props descriptivos y consistentes
+- Validación visual y accesible (`required`, `email`, `minLength`)
 - Diagramas Mermaid para navegación y lógica
-- Validación visual y accesibilidad en dispositivos móviles
-
-src/
-├── pages/
-│   ├── Login.vue
-│   └── Register.vue
-├── composables/
-│   └── useAuth.ts
-├── store/
-│   └── auth.ts
-
-graph TD
-  A[Login.vue] --> B[useAuth.ts]
-  B --> C[auth.ts]
-  A --> D[Home.vue]
-  E[Register.vue] --> B
-  E --> D
-
- 
-🔐 Diagrama de flujo de autenticación
-
-Este diagrama muestra cómo los componentes `Login.vue` y `Register.vue` interactúan con la lógica de autenticación y navegación:
-
-```mermaid
-graph TD
-  A[Login.vue] --> B[useAuth.ts]
-  B --> C[auth.ts]
-  A --> D[Home.vue]
-  E[Register.vue] --> B
-  E --> D
-
-
-### 🧭 Explicación visual
-
-- **Login.vue** y **Register.vue** son las interfaces de entrada para usuarios.
-- Ambos usan el composable **useAuth.ts**, que centraliza la lógica de login y registro.
-- **useAuth.ts** comunica con el store **auth.ts** para gestionar el estado del usuario.
-- Tras autenticarse, el flujo redirige a **Home.vue**.
-
-
-### 🌍 Recomendaciones para equipos multiculturales
-
-- Comentarios bilingües en componentes (`es` / `en`)
-- Validación defensiva en formularios (`required`, `email`, `minLength`)
 - Mensajes de error claros y accesibles
-- Navegación visual con diagramas Mermaid para facilitar el onboarding
+- Responsive design con Tailwind CSS
 
-src/pages/Home.vue
-src/pages/NotFound.vue
-src/pages/Login.vue
-src/pages/Register.vue
-src/pages/Products.vue
-src/pages/Cart.vue
-src/pages/Checkout.vue
+---
+
+
