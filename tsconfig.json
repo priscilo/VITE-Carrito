@@ -1,0 +1,72 @@
+{
+    "compilerOptions": {
+        // Objetivo moderno para compatibilidad con ESNext y navegadores actuales
+        "target": "ESNext",
+        // Uso explícito de campos definidos en clases
+        "useDefineForClassFields": true,
+        // Módulo moderno para Vite y Vue 3
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        // Evita errores por diferencias de mayúsculas/minúsculas entre sistemas operativos
+        "forceConsistentCasingInFileNames": true,
+        // Activa el modo estricto para mejorar la robustez del tipado
+        "strict": true,
+        // Soporte JSX si usas Vue con JSX o TSX
+        "jsx": "preserve",
+        // Mapas de fuente para depuración
+        "sourceMap": true,
+        // Permite importar archivos JSON como módulos
+        "resolveJsonModule": true,
+        // Interoperabilidad con módulos CommonJS
+        "esModuleInterop": true,
+        // Librerías disponibles en el entorno
+        "lib": [
+            "ESNext",
+            "DOM"
+        ],
+        // Base para alias
+        "baseUrl": ".",
+        // Alias defensivos para modularidad y claridad multicultural
+        "paths": {
+            "@/*": [
+                "src/*"
+            ],
+            "@assets/*": [
+                "src/assets/*"
+            ],
+            "@components/*": [
+                "src/components/*"
+            ],
+            "@composables/*": [
+                "src/composables/*"
+            ],
+            "@pages/*": [
+                "src/pages/*"
+            ],
+            "@store/*": [
+                "src/store/*"
+            ],
+            "@types/*": [
+                "src/types/*"
+            ]
+        }
+    },
+    // Archivos incluidos en la compilación
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.d.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue"
+    ],
+    // Exclusiones defensivas
+    "exclude": [
+        "node_modules",
+        "dist"
+    ],
+    // Referencia para configuración de Vite
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ]
+}

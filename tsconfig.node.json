@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        // Permite usar proyectos dependientes (útil para Vite + monorepos)
+        "composite": true,
+        // Usa módulos modernos compatibles con Vite
+        "module": "ESNext",
+        // Resolución de módulos estilo Node.js
+        "moduleResolution": "Node",
+        // Permite importar por defecto desde módulos CommonJS
+        "allowSyntheticDefaultImports": true,
+        // Evita errores por diferencias de mayúsculas/minúsculas entre sistemas operativos
+        "forceConsistentCasingInFileNames": true,
+        // Mejora la interoperabilidad con librerías externas
+        "esModuleInterop": true,
+        // Incluye tipado para Node.js
+        "types": [
+            "node"
+        ]
+    },
+    // Archivos incluidos en la compilación
+    "include": [
+        "vite.config.ts"
+    ],
+    // Exclusiones defensivas
+    "exclude": [
+        "dist",
+        "node_modules"
+    ]
+}
