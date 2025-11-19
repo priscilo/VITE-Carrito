@@ -1,0 +1,72 @@
+**Aquí tienes un listado completo de muebles de madera comunes, clasificados por tipo y función.**
+
+---
+
+### 🪑 Muebles de madera más comunes
+
+#### **1. Para sala y estar**
+- *Sofás con estructura de madera*  S/300.00
+- *Mesas de centro*  S/200.00
+- *Mesas auxiliares o laterales* S/500.00
+- *Estanterías y bibliotecas*  S/400.00
+- *Muebles para TV* S/600.00
+- *Aparadores* S/300.00
+
+#### **2. Para comedor**
+- *Mesas de comedor rectangulares* S/1300.00
+- *Mesas de comedor redondas*  S/1400.00
+- *Mesas de comedor extensibles*  S/1500.00
+- *Sillas de comedor*  S/300.00
+- *Buffets y credenzas*  S/1300.00
+- *Bancos de madera*  S/1100.00
+
+#### **3. Para dormitorio**
+- *Camas (con cabecera y piecera de madera)*  S/1300.00
+- *Mesitas de noche*  S/100.00
+- *Cómodas y cajoneras*   S/1300.00
+- *Armarios y roperos*   S/1800.00
+- *Espejos con marco de madera*  S/100.00
+
+#### **4. Para oficina o estudio**
+- *Escritorios de madera*  S/1300.00
+- *Sillas ergonómicas con base de madera* S/1500.00
+- *Estanterías modulares*  S/800.00
+- *Archivadores y muebles organizadores*  S/1300.00
+
+#### **5. Para cocina y baño**
+- *Muebles bajo lavadero*  S/500.00
+- *Alacenas y gabinetes superiores*  S/1300.00
+- *Islas de cocina con base de madera*  S/1400.00
+- *Muebles de baño con lavamanos integrado*  S/1700.00
+
+---
+
+VITE-Carrito/
+├── public/
+│   └── images/                  # Fotos de muebles por categoría
+├── src/
+│   ├── assets/                  # Íconos, fuentes, estilos
+│   ├── components/
+│   │   ├── ProductCard.vue      # Tarjeta de mueble
+│   │   ├── CategorySelector.vue # Selector de categoría
+│   │   └── CartItem.vue         # Ítem en carrito
+│   ├── composables/
+│   │   ├── useCart.ts           # Lógica defensiva del carrito
+│   │   └── useCatalogo.ts       # Acceso al catálogo de muebles
+│   ├── data/
+│   │   └── muebles.ts           # Catálogo estructurado
+│   ├── pages/
+│   │   ├── Home.vue
+│   │   ├── Catalogo.vue         # Vista de muebles por categoría
+│   │   └── Checkout.vue
+│   ├── store/
+│   │   └── cart.ts              # Estado global del carrito
+│   ├── types/
+│   │   └── Mueble.ts            # Interface defensiva
+│   ├── router/
+│   │   └── index.ts             # Rutas con lazy loading
+│   └── App.vue
+├── README.md                    # Documentación visual
+├── vite.config.ts               # Alias y configuración
+└── scripts/
+    └── clean.ps1                # Script defensivo para entorno
