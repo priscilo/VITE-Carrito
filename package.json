@@ -1,10 +1,16 @@
 {
     "name": "vite-carrito",
     "version": "1.0.0",
+    "type": "module",
+    "description": "Proyecto de carrito de compras con Vite y Vue 3",
+    "author": "Tu Nombre",
     "scripts": {
         "dev": "vite",
+        "test": "vitest",
         "build": "vite build",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "clean": "rimraf node_modules/.vite dist",
+        "lint": "eslint . --ext .js,.ts,.vue"
     },
     "dependencies": {
         "pinia": "^2.1.6",
@@ -12,9 +18,15 @@
         "vue-router": "^4.2.5"
     },
     "devDependencies": {
+        "@testing-library/vue": "^8.1.0",
         "@types/node": "^24.10.1",
         "@vitejs/plugin-vue": "^6.0.1",
+        "eslint": "^8.50.0",
+        "eslint-plugin-vue": "^9.20.0",
+        "rimraf": "^5.0.0",
         "typescript": "^5.2.2",
-        "vite": "^7.2.2"
+        "vite": "^7.2.2",
+        "vitest": "^4.0.10",
+        "vue-test-utils": "^0.5.0"
     }
 }

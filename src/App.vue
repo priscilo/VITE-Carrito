@@ -1,20 +1,29 @@
 <template>
-  <div id="app" class="min-h-screen bg-gray-50 text-gray-900 font-sans">
-    <header class="bg-white shadow-md p-4 flex items-center justify-between">
-      <h1 class="text-xl font-bold">🛒 VITE-Carrito</h1>
-      <nav>
-        <RouterLink to="/" class="mx-2 hover:underline">Inicio</RouterLink>
-        <RouterLink to="/products" class="mx-2 hover:underline">Productos</RouterLink>
-        <RouterLink to="/cart" class="mx-2 hover:underline">Carrito</RouterLink>
+  <div id="app" class="min-h-screen bg-gray-50 text-gray-900 font-sans flex flex-col">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+      <nav class="container mx-auto flex items-center justify-between py-4 px-6">
+        <RouterLink to="/" class="flex items-center gap-2 text-indigo-600 font-bold text-xl hover:scale-105 transition-transform">
+          <span>🛒</span>
+          <span>VITE-Carrito</span>
+        </RouterLink>
+        <ul class="flex gap-6 text-gray-700 font-medium">
+          <li><RouterLink to="/" class="hover:text-indigo-500 transition-colors" aria-label="Inicio">Inicio</RouterLink></li>
+          <li><RouterLink to="/products" class="hover:text-indigo-500 transition-colors" aria-label="Productos">Productos</RouterLink></li>
+          <li><RouterLink to="/cart" class="hover:text-indigo-500 transition-colors" aria-label="Carrito">Carrito</RouterLink></li>
+        </ul>
       </nav>
     </header>
 
-    <main class="p-4">
+    <!-- Main -->
+    <main class="flex-grow container mx-auto px-6 py-8">
       <RouterView />
     </main>
 
-    <footer class="bg-white border-t p-4 text-center text-sm text-gray-500">
-      © 2025 VITE-Carrito. Todos los derechos reservados.
+    <!-- Footer -->
+    <footer class="bg-white border-t py-4 text-center text-sm text-gray-500">
+      <p>© 2025 VITE-Carrito. Todos los derechos reservados.</p>
+      <p class="mt-1">Desarrollado por INVERSIONES MULTIPLES PUMA S.R.L.</p>
     </footer>
   </div>
 </template>
@@ -37,8 +46,7 @@ export default defineComponent({
 a {
   transition: color 0.2s ease;
 }
-
 a:hover {
-  color: #3b82f6; /* azul Tailwind */
+  color: #3b82f6;
 }
 </style>

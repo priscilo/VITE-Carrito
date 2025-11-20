@@ -1,18 +1,37 @@
-export default [
+import type { RouteRecordRaw } from 'vue-router'
+
+// Función helper para importar componentes de forma segura
+const loadView = (view: string) => {
+    return () => import(`@/pages/${view}.vue`).catch(err => {
+        console.error(`Error cargando la vista ${view}:`, err)
+        // Opcional: redirigir a una página de error o componente fallback
+        return import('@/pages/NotFound.vue')
+    })
+}
+
+const routes: RouteRecordRaw[] = [
     {
         path: '/products',
         name: 'Products',
-        component: () => import('@/pages/Products.vue'),
+        component: loadView('Products'),
     },
     {
         path: '/cart',
         name: 'Cart',
-        component: () => import('@/pages/Cart.vue'),
+        component: loadView('Cart'),
     },
     {
         path: '/checkout',
         name: 'Checkout',
-        component: () => import('@/pages/Checkout.vue'),
+        component: loadView('Checkout'),
         meta: { requiresAuth: true },
     },
+    // Ruta fallback para páginas no encontradas
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: loadView('NotFound'),
+    },
 ]
+
+export default routes

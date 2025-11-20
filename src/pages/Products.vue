@@ -1,58 +1,41 @@
 <template>
-  <section class="p-6 bg-white rounded shadow-md max-w-5xl mx-auto">
-    <h2 class="text-2xl font-bold mb-6">Nuestros productos</h2>
+  <div
+    class="border rounded-lg p-4 shadow hover:shadow-lg transition-shadow duration-200"
+    v-if="item"
+  >
+    <img
+      :src="item.imagen || '/placeholder.png'" 
+      :alt="item.nombre || 'Producto'"
+      class="w-full h-48 object-cover mb-4 rounded"
+    />
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <div
-        v-for="product in products"
-        :key="product.id"
-        class="border rounded p-4 shadow hover:shadow-lg transition"
-      >
-        <img
-          :src="product.image"
-          :alt="product.name"
-          class="w-full h-40 object-cover mb-4 rounded"
-        />
-        <h3 class="text-lg font-semibold mb-2">{{ product.name }}</h3>
-        <p class="text-gray-700 mb-2">{{ product.description }}</p>
-        <p class="text-blue-600 font-bold mb-4">S/ {{ product.price }}</p>
+    <h2 class="text-lg font-semibold mb-2">{{ item.nombre || 'Sin nombre' }}</h2>
 
-        <button
-          @click="addToCart(product)"
-          class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
-        >
-          Añadir al carrito
-        </button>
-      </div>
+    <p class="text-gray-600 mb-4">
+      {{ item.descripcion || 'Sin descripción disponible' }}
+    </p>
+
+    <div class="text-blue-600 font-bold text-xl">
+      ${{ (item.precio ?? 0).toFixed(2) }}
     </div>
-  </section>
+  </div>
+
+  <div v-else class="p-4 text-center text-gray-400">
+    Cargando producto...
+  </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, onMounted } from 'vue'
-import { useCartStore } from '@/store/cart'
-import { useProductStore } from '@/store/products'
+<script setup lang="ts">
+import type { Mueble } from '@/data/muebles'
 
-export default defineComponent({
-  name: 'Products',
-  setup() {
-    const cart = useCartStore()
-    const productStore = useProductStore()
-
-    onMounted(() => {
-      productStore.fetchProducts()
-    })
-
-    return {
-      products: productStore.products,
-      addToCart: cart.addItem,
-    }
-  },
+// Define props con default usando withDefaults para evitar warnings
+const props = withDefaults(defineProps<{ item?: Mueble }>(), {
+  item: undefined,
 })
+
+const { item } = props
 </script>
 
 <style scoped>
-section {
-  font-family: 'Inter', sans-serif;
-}
+/* Puedes agregar hover extra o sombras más suaves aquí si quieres */
 </style>
